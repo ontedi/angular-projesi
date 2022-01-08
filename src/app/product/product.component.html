@@ -1,11 +1,15 @@
-<h3>Ürünler</h3>
+<h3 class="m-b10">{{sayfa_baslik}}</h3>
+<p *ngIf="urun_listesi else uyari_urun_yok_template"></p>
+<ng-template #uyari_urun_yok_template>
+    <div class="alert alert-primary">Bu kategoride ürün bulunamadı.</div>
+</ng-template>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 m-b10" *ngFor="let urun of urun_listesi">
         <div class="card">
-            <img class="card-img-top" src="assets/1.jpg" alt="Card image cap">
+            <img class="card-img-top" src="{{urun.urun_resim}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Ürün başlık</h5>
-              <p class="card-text">Ürün açıklaması gibi bir şey yazalım buraya.</p>
+              <h5 class="card-title">{{urun.urun_adi}}</h5>
+              <p class="card-text">{{urun.urun_aciklama}}</p>
               <a href="#" class="btn btn-primary">Detay</a>
             </div>
           </div>
