@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Category } from '../category/category';
 
 @Component({
   selector: 'app-product',
@@ -27,7 +29,22 @@ export class ProductComponent implements OnInit {
   }
 
   
-  addToCart(product: Product) {
+  fnSepete_Ekle(product: Product) {
     alert("sepete ekledim. Ürün adı: " + product.urun_adi + ", Ürün fiyatı: " + product.urun_fiyat);
   }
+
+  kategori_listesi: Category[] = [
+    {kategori_id: 1, kategori_adi: "Müzik Seti"},
+    {kategori_id: 2, kategori_adi: "Bilgisayar"},
+    {kategori_id: 3, kategori_adi: "Sarf Malzeme"},
+    {kategori_id: 4, kategori_adi: "Alyans"}
+  ];
+
+  
+  fnKategori_Degistir(event: Event) {
+    console.log(event.target);
+  }
+
+
+
 }
